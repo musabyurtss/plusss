@@ -1,7 +1,20 @@
 body {
+  margin: 0;
+  height: 1080px;
   background-color: rgb(255, 136, 0);
   background-image: url(https://www.tokkoro.com/picsup/388081-joker-theme-background-images.jpg)
   }
+
+* { background-color: rgba(255,0,0,.2); }
+* * { background-color: rgba(0,255,0,.2); }
+* * * { background-color: rgba(0,0,255,.2); }
+* * * * { background-color: rgba(255,0,255,.2); }
+* * * * * { background-color: rgba(0,255,255,.2); }
+* * * * * * { background-color: rgba(255,255,0,.2); }
+* * * * * * * { background-color: rgba(255,0,0,.2); }
+* * * * * * * * { background-color: rgba(0,255,0,.2); }
+* * * * * * * * * { background-color: rgba(0,0,255,.2); }
+
 
   @mixin abs-fit {
     position: absolute;
@@ -13,12 +26,17 @@ body {
 
   .player-container {
     @include abs-fit();
-    background-color: rgba(255, 136, 0, 0.473);
     .overlay{
-      
-      .top {}
-      .bottom {}
-      .loading-spinner {}
+      @include abs-fit();
+      .top {
+        height: 880px;
+      }
+      .bottom {
+        height: 200px;
+      }
+      .loading-spinner {
+        @include abs-fit();
+        }
     }
   }
 
