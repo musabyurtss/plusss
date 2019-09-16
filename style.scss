@@ -1,0 +1,24 @@
+body {
+  background-color: rgb(255, 136, 0);
+  background-image: url(https://www.tokkoro.com/picsup/388081-joker-theme-background-images.jpg)
+  }
+
+  @mixin abs-fit {
+    position: absolute;
+    left: 0;
+    top:0;
+    right: 0;
+    bottom: 0;
+  }
+
+  .player-container {
+    @include abs-fit();
+    background-color: rgba(255, 136, 0, 0.473);
+    .overlay{
+      
+      .top {}
+      .bottom {}
+      .loading-spinner {}
+    }
+  }
+
