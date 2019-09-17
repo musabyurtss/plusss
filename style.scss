@@ -24,19 +24,54 @@ body {
     bottom: 0;
   }
 
+  @function calculateRem($size) {
+    $remSize: $size / 16px;
+  //Default font size on html element is 100%, equivalent to 16px;
+    @return #{$remSize}rem;
+  }
+
+  $overlay-bgc: rgba(27, 31, 40, 0.83);
+  $seekbar-played: #fad701;
+  $seekbar-bgc: rgba(27, 31, 40,.5);
+  $control-color:#fff;
+
   .player-container {
-    @include abs-fit();
+    position: relative;
+    width: 100%;
+    height: 100%;
     .overlay{
       @include abs-fit();
       .top {
-        height: 880px;
+        height: calculateRem(880px);
       }
       .bottom {
-        height: 200px;
+        height:calculateRem(200px);
       }
       .loading-spinner {
         @include abs-fit();
         }
     }
+
+  .controlbar {
+    width: 100%;
+    height: 100%;
+    font-size: 0;
+    .control,.middle-earth {
+      display: inline-block;
+      height: 100%;
+      width: 10%;
+      // margin: .3em;
+      font-size: 16px;
+    }
+    .control {
+
+    }
+    .middle-earth {
+      width: 80%;
+    }
+
+  }
+
+
   }
 
