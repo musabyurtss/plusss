@@ -5,16 +5,25 @@ body {
   background-image: url(https://www.tokkoro.com/picsup/388081-joker-theme-background-images.jpg)
   }
 
-* { background-color: rgba(255,0,0,.2); }
-* * { background-color: rgba(0,255,0,.2); }
-* * * { background-color: rgba(0,0,255,.2); }
-* * * * { background-color: rgba(255,0,255,.2); }
-* * * * * { background-color: rgba(0,255,255,.2); }
-* * * * * * { background-color: rgba(255,255,0,.2); }
-* * * * * * * { background-color: rgba(255,0,0,.2); }
-* * * * * * * * { background-color: rgba(0,255,0,.2); }
-* * * * * * * * * { background-color: rgba(0,0,255,.2); }
+  // Temp
+  * { background-color: rgba(255,0,0,.2); }
+  * * { background-color: rgba(0,255,0,.2); }
+  * * * { background-color: rgba(0,0,255,.2); }
+  * * * * { background-color: rgba(255,0,255,.2); }
+  * * * * * { background-color: rgba(0,255,255,.2); }
+  * * * * * * { background-color: rgba(255,255,0,.2); }
+  * * * * * * * { background-color: rgba(255,0,0,.2); }
+  * * * * * * * * { background-color: rgba(0,255,0,.2); }
+  * * * * * * * * * { background-color: rgba(0,0,255,.2); }
 
+  // Theme
+  $overlay-bgc: rgba(27, 31, 40, 0.83);
+  $seekbar-played: #fad701;
+  $seekbar-bgc: rgba(27, 31, 40,.5);
+  $control-color:#fff;
+
+  // Metrics
+  $seekbar-height: 10px;
 
   @mixin abs-fit {
     position: absolute;
@@ -30,10 +39,21 @@ body {
     @return #{$remSize}rem;
   }
 
-  $overlay-bgc: rgba(27, 31, 40, 0.83);
-  $seekbar-played: #fad701;
-  $seekbar-bgc: rgba(27, 31, 40,.5);
-  $control-color:#fff;
+  @mixin circle {
+    content: ' ';
+    width: 15px;
+    height: 15px;
+    background-color: #fad701;
+    transform: rotateZ(45deg) translateY(-70%);
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    top:50%;
+    border-radius: 1.9px;
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.5);
+  }
+
+
 
   .player-container {
     position: relative;
@@ -49,6 +69,7 @@ body {
       }
       .loading-spinner {
         @include abs-fit();
+        display: none;
         }
     }
 
@@ -64,14 +85,47 @@ body {
       font-size: 16px;
     }
     .control {
-
+        .play-btn {
+          height: 100%;
+        }
     }
     .middle-earth {
       width: 80%;
     }
 
+    .middle-earth {
+      .progress-control {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        .progress-container {
+
+          background-color: $seekbar-bgc;
+          width: 100%;
+          height: $seekbar-height;
+          position: absolute;
+          top: 50%;
+          -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+        .loaded {
+          height: 100%;
+          width: 30%;
+          max-width: 100%;
+          min-width: 0;
+          position: relative;
+          transition: .4s ease;
+          background-color: #fad701;
+          &::after {
+            @include circle;
+          }
+        }
+        }
+      }
+    }
+
   }
 
+  
 
   }
 
