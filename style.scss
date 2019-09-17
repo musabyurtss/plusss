@@ -6,25 +6,27 @@ body {
   }
 
   // Temp
-  * { background-color: rgba(255,0,0,.2); }
-  * * { background-color: rgba(0,255,0,.2); }
-  * * * { background-color: rgba(0,0,255,.2); }
-  * * * * { background-color: rgba(255,0,255,.2); }
-  * * * * * { background-color: rgba(0,255,255,.2); }
-  * * * * * * { background-color: rgba(255,255,0,.2); }
-  * * * * * * * { background-color: rgba(255,0,0,.2); }
-  * * * * * * * * { background-color: rgba(0,255,0,.2); }
-  * * * * * * * * * { background-color: rgba(0,0,255,.2); }
+  // * { background-color: rgba(255,0,0,.2); }
+  // * * { background-color: rgba(0,255,0,.2); }
+  // * * * { background-color: rgba(0,0,255,.2); }
+  // * * * * { background-color: rgba(255,0,255,.2); }
+  // * * * * * { background-color: rgba(0,255,255,.2); }
+  // * * * * * * { background-color: rgba(255,255,0,.2); }
+  // * * * * * * * { background-color: rgba(255,0,0,.2); }
+  // * * * * * * * * { background-color: rgba(0,255,0,.2); }
+  // * * * * * * * * * { background-color: rgba(0,0,255,.2); }
 
   // Theme
   $overlay-bgc: rgba(27, 31, 40, 0.83);
   $seekbar-played: #fad701;
   $seekbar-bgc: rgba(27, 31, 40,.5);
   $control-color:#fff;
+  $primary-color:$seekbar-played;
 
   // Metrics
   $seekbar-height: 10px;
 
+  // Helpers
   @mixin abs-fit {
     position: absolute;
     left: 0;
@@ -39,11 +41,19 @@ body {
     @return #{$remSize}rem;
   }
 
+  @mixin v-center {
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+
+  // Presentional Components
   @mixin circle {
     content: ' ';
     width: 15px;
     height: 15px;
-    background-color: #fad701;
+    background-color: $primary-color;
     transform: rotateZ(45deg) translateY(-70%);
     display: inline-block;
     position: absolute;
@@ -53,14 +63,42 @@ body {
     box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.5);
   }
 
+  @mixin live-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    display: inline-block;
+    background-color: rgba(250,215,1,0.36);
+    position: relative;
+      &::after {
+      content: ' ';
+      width: 10px;
+      height: 10px;
+      background-color: $primary-color;
+      @include v-center();
+      border-radius: 100%;
+      left: 10px;
+    }
+  }
 
+  @mixin tooltip {
+    position: absolute;
+    right: 0;
+    bottom: 30px;
+    color: #fff;
+    font-size: 1.4em;
+    font-size: 30px;
+    line-height: 1.5;
+  }
 
+  // Main Style
   .player-container {
     position: relative;
     width: 100%;
     height: 100%;
     .overlay{
       @include abs-fit();
+      background-color: $overlay-bgc;
       .top {
         height: calculateRem(880px);
       }
@@ -99,7 +137,6 @@ body {
         height: 100%;
         position: relative;
         .progress-container {
-
           background-color: $seekbar-bgc;
           width: 100%;
           height: $seekbar-height;
@@ -109,19 +146,46 @@ body {
           transform: translateY(-50%);
         .loaded {
           height: 100%;
-          width: 30%;
+          width: 46%;
           max-width: 100%;
           min-width: 0;
           position: relative;
           transition: .4s ease;
-          background-color: #fad701;
+          background-color: $primary-color;
           &::after {
             @include circle;
           }
+          .tooltip {
+            @include tooltip();
+          }
         }
         }
+
       }
     }
+
+    .right{
+      position: relative;
+      > span {
+        @include v-center;
+        width: 100%;
+        text-align: center;
+        > span {
+          display: inline-block;
+          vertical-align: middle;
+        }
+      }
+      .icon {
+        @include live-icon;
+      }
+      .text {
+        text-align: left;
+        font-size: 1.6em;
+        padding-right: 1.5em;
+        padding-left: .5em;
+        color: $primary-color;
+      }
+    } 
 
   }
 
