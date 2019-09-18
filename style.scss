@@ -6,15 +6,15 @@ body {
   }
 
   // Temp
-  // * { background-color: rgba(255,0,0,.2); }
-  // * * { background-color: rgba(0,255,0,.2); }
-  // * * * { background-color: rgba(0,0,255,.2); }
-  // * * * * { background-color: rgba(255,0,255,.2); }
-  // * * * * * { background-color: rgba(0,255,255,.2); }
-  // * * * * * * { background-color: rgba(255,255,0,.2); }
-  // * * * * * * * { background-color: rgba(255,0,0,.2); }
-  // * * * * * * * * { background-color: rgba(0,255,0,.2); }
-  // * * * * * * * * * { background-color: rgba(0,0,255,.2); }
+  * { background-color: rgba(255,0,0,.2); }
+  * * { background-color: rgba(0,255,0,.2); }
+  * * * { background-color: rgba(0,0,255,.2); }
+  * * * * { background-color: rgba(255,0,255,.2); }
+  * * * * * { background-color: rgba(0,255,255,.2); }
+  * * * * * * { background-color: rgba(255,255,0,.2); }
+  * * * * * * * { background-color: rgba(255,0,0,.2); }
+  * * * * * * * * { background-color: rgba(0,255,0,.2); }
+  * * * * * * * * * { background-color: rgba(0,0,255,.2); }
 
   // Theme
   $overlay-bgc: rgba(27, 31, 40, 0.83);
@@ -83,12 +83,16 @@ body {
 
   @mixin tooltip {
     position: absolute;
-    right: 0;
+    right: -37px;
     bottom: 30px;
     color: #fff;
     font-size: 1.4em;
     font-size: 30px;
     line-height: 1.5;
+    width: 65px;
+    height: 45px;
+    text-align: left;
+    padding: 0 .2em;
   }
 
   // Main Style
