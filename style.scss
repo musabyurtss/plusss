@@ -6,15 +6,15 @@ body {
   }
 
   // Temp
-  * { background-color: rgba(255,0,0,.2); }
-  * * { background-color: rgba(0,255,0,.2); }
-  * * * { background-color: rgba(0,0,255,.2); }
-  * * * * { background-color: rgba(255,0,255,.2); }
-  * * * * * { background-color: rgba(0,255,255,.2); }
-  * * * * * * { background-color: rgba(255,255,0,.2); }
-  * * * * * * * { background-color: rgba(255,0,0,.2); }
-  * * * * * * * * { background-color: rgba(0,255,0,.2); }
-  * * * * * * * * * { background-color: rgba(0,0,255,.2); }
+  // * { background-color: rgba(255,0,0,.2); }
+  // * * { background-color: rgba(0,255,0,.2); }
+  // * * * { background-color: rgba(0,0,255,.2); }
+  // * * * * { background-color: rgba(255,0,255,.2); }
+  // * * * * * { background-color: rgba(0,255,255,.2); }
+  // * * * * * * { background-color: rgba(255,255,0,.2); }
+  // * * * * * * * { background-color: rgba(255,0,0,.2); }
+  // * * * * * * * * { background-color: rgba(0,255,0,.2); }
+  // * * * * * * * * * { background-color: rgba(0,0,255,.2); }
 
   // Theme
   $overlay-bgc: rgba(27, 31, 40, 0.83);
@@ -46,6 +46,21 @@ body {
     top: 50%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
+  }
+
+  @mixin h-center {
+    position: absolute;
+    left: 50%;
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+  }
+
+  @mixin center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
   }
 
   // Presentional Components
@@ -111,7 +126,12 @@ body {
       }
       .loading-spinner {
         @include abs-fit();
+        // text-align: center;
         // display: none;
+        img {
+          width: 165px;
+            @include center();
+        }
         }
     }
 
@@ -150,7 +170,7 @@ body {
           transform: translateY(-50%);
         .loaded {
           height: 100%;
-          width: 46%;
+          width: 50%;
           max-width: 100%;
           min-width: 0;
           position: relative;
