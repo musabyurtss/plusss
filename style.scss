@@ -130,7 +130,7 @@ body {
         // display: none;
         img {
           width: 165px;
-            @include center();
+          @include center();
         }
         }
     }
