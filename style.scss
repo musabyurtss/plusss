@@ -170,6 +170,7 @@ body {
         @include v-center;
         width: 100%;
         text-align: center;
+        white-space: nowrap;
         > span {
           display: inline-block;
           vertical-align: middle;
